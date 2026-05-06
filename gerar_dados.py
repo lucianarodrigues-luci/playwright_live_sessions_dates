@@ -1,8 +1,8 @@
 # gerar_dados.py
 import pandas as pd
 
-# Lê seu arquivo original (CSV ou TSV). Troque "orig.csv" se o nome for outro.
-df = pd.read_csv("orig.csv", sep=None, engine="python")
+# Lê o arquivo recalculado gerado por calcular_datas.py.
+df = pd.read_csv("orig_teste.csv", sep=None, engine="python")
 
 # Verificação das colunas necessárias
 need = [
@@ -14,7 +14,7 @@ need = [
 ]
 missing = [c for c in need if c not in df.columns]
 if missing:
-    raise SystemExit(f"❌ Colunas faltando no orig.csv: {missing}")
+    raise SystemExit(f"❌ Colunas faltando no orig_teste.csv: {missing}")
 
 linhas = []
 for _, row in df.iterrows():
